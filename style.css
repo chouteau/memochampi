@@ -538,7 +538,8 @@ body {
 
 /* Colonne Gauche : Image et visionneuse */
 .mushroom-stage-card {
-    position: relative;
+    position: sticky;
+    top: 80px;
     border-radius: var(--radius-xl);
     overflow: hidden;
     background: var(--card-bg);
@@ -551,10 +552,20 @@ body {
 .image-wrapper {
     position: relative;
     width: 100%;
-    height: 380px;
+    height: clamp(500px, 62vh, 580px);
     background: #000;
     overflow: hidden;
     cursor: zoom-in;
+}
+
+@media (max-width: 900px) {
+    .mushroom-stage-card {
+        position: relative;
+        top: 0;
+    }
+    .image-wrapper {
+        height: 330px;
+    }
 }
 
 .mushroom-img {

@@ -416,13 +416,6 @@
         populateEducationalCard(currentQ.target);
         DOM.eduCard.classList.remove('hidden');
         DOM.btnNextQuestion.classList.remove('hidden');
-
-        // Transition automatique si bonne réponse (1.8s) pour fluidifier le jeu
-        if (isCorrect) {
-            AppState.autoAdvanceTimer = setTimeout(() => {
-                nextQuestion();
-            }, 1800);
-        }
     }
 
     function populateEducationalCard(m) {
