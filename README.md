@@ -1,7 +1,9 @@
-# 🍄 MemoChampi
+<p align="center">
+  <img src="og-image.png" alt="MemoChampi - Jeu de reconnaissance des champignons" width="100%" style="max-width: 850px; border-radius: 12px;" />
+</p>
 
 <p align="center">
-  <h1 align="center">MemoChampi</h1>
+  <h1 align="center">🍄 MemoChampi</h1>
   <p align="center"><strong>Jeu de mémoire et de reconnaissance visuelle des champignons des bois</strong></p>
   <p align="center">
     👉 <strong><a href="https://chouteau.github.io/memochampi/">Jouer au jeu en ligne !</a></strong>
