@@ -581,6 +581,12 @@
 
     function openMycothequeModal() {
         SoundEngine.playClick();
+        if (window.MUSHROOMS) {
+            const titleEl = DOM.modalMycotheque.querySelector('.modal-header h3');
+            if (titleEl) {
+                titleEl.innerHTML = `<span>📚</span> Mycothèque des Sous-Bois (${MUSHROOMS.length} espèces)`;
+            }
+        }
         DOM.modalMycotheque.classList.remove('hidden');
         DOM.mycoSearch.value = '';
         DOM.mycoFilter.value = 'all';
