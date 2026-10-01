@@ -58,24 +58,6 @@ L'application est entièrement statique, ultra-fluide et fonctionne **100% local
 
 ---
 
-## 📂 Organisation du Dépôt
-
-```
-MemoChampi/
-├── index.html        # Page principale et interface de l'application
-├── style.css         # Design system, thèmes Sombre/Clair, Glassmorphism
-├── app.js            # Moteur du quiz, gestionnaires d'événements et navigation
-├── sound.js          # Synthétiseur d'effets sonores Web Audio API
-├── mushrooms.js      # Base de données complète des 109 champignons
-├── favicon.svg       # Favicon SVG personnalisé
-├── build_data.py     # Script Python d'automatisation des images Wikimedia
-├── images/           # 109 photographies HD optimisées (20 Mo au total)
-├── .gitignore        # Fichiers ignorés par Git
-└── README.md         # Documentation du projet
-```
-
----
-
 ## 🎮 Comment Lancer le Jeu en Local
 
 1. Double-cliquez simplement sur le fichier **`index.html`** pour l'ouvrir dans votre navigateur web habituel (aucun serveur ni installation requise).
