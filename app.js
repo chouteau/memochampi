@@ -255,13 +255,15 @@
             case 'toxic':
                 return MUSHROOMS.filter(m => m.category === 'toxic' || m.category === 'deadly');
             case 'famous':
-                // Les 20 espèces les plus emblématiques
+                // Les espèces les plus emblématiques des sous-bois
                 return MUSHROOMS.filter(m =>
                     ['cepe_de_bordeaux', 'girolle', 'trompette_de_la_mort', 'morille_commune',
                      'coulemelle', 'pied_de_mouton', 'oronge', 'lactaire_delicieux',
                      'pleurote_en_huitre', 'agaric_champetre', 'coprin_chevelu', 'amanite_phalloide',
                      'amanite_tue_mouches', 'amanite_panthere', 'bolet_de_satan', 'gyromitre',
-                     'sparassis_crepu', 'langue_de_boeuf', 'clathre_rouge', 'vesse_de_loup_geante'].includes(m.id)
+                     'sparassis_crepu', 'langue_de_boeuf', 'clathre_rouge', 'vesse_de_loup_geante',
+                     'truffe_noire', 'hydne_herisson', 'bolet_a_pied_rouge', 'laccaire_amethyste',
+                     'tricholome_de_la_saint_georges', 'flammuline_a_pied_veloute'].includes(m.id)
                 );
             default:
                 return [...MUSHROOMS];

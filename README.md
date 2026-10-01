@@ -22,7 +22,7 @@ L'application est entièrement statique, ultra-fluide et fonctionne **100% local
   * Touches `Z` ou `F` pour zoomer en plein écran sur la photo.
   * Touche `Échap` pour fermer les fiches et visionneuses.
 
-### 2. Base de Données Mycologique Riche (44 Espèces Illustrées)
+### 2. Base de Données Mycologique Riche (109 Espèces Illustrées)
 * **Photographies Libres de Droit** : Toutes les photos sont issues de **Wikimedia Commons** sous licences libres (Creative Commons CC BY-SA / Domaine Public), téléchargées et optimisées en local.
 * **Fiches Mycologiques Éducatives** détaillées :
   * **Comestibilité normalisée** : 🍴 *Excellent comestible*, 🍽️ *Comestible*, ⚠️ *Toxique*, ☠️ *Mortel*, 🪵 *Sans intérêt*.
@@ -39,7 +39,7 @@ L'application est entièrement statique, ultra-fluide et fonctionne **100% local
 * **Bilan Final & Révision des Erreurs** :
   * Calcul de la note sur 20 avec badge de rang (*Grand Maître Mycologue*, *Cueilleur Expert*, *Amateur Averti*...).
   * Récapitulatif interactif de l'intégralité des 20 propositions avec ouverture directe de la fiche explicative au clic.
-* **Mycothèque Intégrée (Encyclopédie)** : Consultation et recherche de l'ensemble des 44 espèces avec filtres par comestibilité et recherche textuelle en temps réel.
+* **Mycothèque Intégrée (Encyclopédie)** : Consultation et recherche de l'ensemble des 109 espèces avec filtres par comestibilité et recherche textuelle en temps réel.
 
 ---
 
@@ -61,10 +61,10 @@ MemoChampi/
 ├── style.css         # Design system, thèmes Sombre/Clair, Glassmorphism
 ├── app.js            # Moteur du quiz, gestionnaires d'événements et navigation
 ├── sound.js          # Synthétiseur d'effets sonores Web Audio API
-├── mushrooms.js      # Base de données complète des 44 champignons
+├── mushrooms.js      # Base de données complète des 109 champignons
 ├── favicon.svg       # Favicon SVG personnalisé
 ├── build_data.py     # Script Python d'automatisation des images Wikimedia
-├── images/           # 44 photographies HD optimisées (9 Mo au total)
+├── images/           # 109 photographies HD optimisées (20 Mo au total)
 ├── .gitignore        # Fichiers ignorés par Git
 └── README.md         # Documentation du projet
 ```
