@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>MemoChampi 🍄 - Jeu de Mémoire & Reconnaissance des Champignons</title>
+    <meta name="title" content="MemoChampi 🍄 - Jeu de Mémoire & Reconnaissance des Champignons">
+    <meta name="description" content="MemoChampi est un jeu éducatif interactif pour apprendre à reconnaître les champignons de nos forêts à partir d'images réelles libres de droit. Testez vos connaissances sur 20 espèces par session !">
+    <meta name="keywords" content="MemoChampi, champignon, quiz champignon, reconnaissance champignon, cèpe, girolle, amanite phalloïde, morille, mycologie, jeu éducatif, MemoFrance, MemoMonde">
+    <meta name="author" content="Marc Chouteau">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0e2016">
+
+    <!-- Favicon & Icons -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="MemoChampi 🍄 - Reconnaissance des Champignons en Quiz">
+    <meta property="og:description" content="Apprenez à identifier les champignons comestibles et toxiques de nos forêts à partir de superbes photos libres de droit !">
+    <meta property="og:image" content="images/cepe_de_bordeaux.jpg">
+    <meta property="og:site_name" content="MemoChampi">
+    <meta property="og:locale" content="fr_FR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MemoChampi 🍄 - Jeu de Quiz Mycologique">
+    <meta name="twitter:description" content="Testez et mémorisez les espèces de champignons : 20 questions, photos réelles, fiches éducatives détaillées !">
+    <meta name="twitter:image" content="images/cepe_de_bordeaux.jpg">
+
+    <!-- Données structurées Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "MemoChampi",
+      "description": "Jeu éducatif de mémoire et d'identification visuelle des champignons des bois sur 20 questions interactives.",
+      "applicationCategory": "EducationalGame",
+      "operatingSystem": "All",
+      "inLanguage": "fr",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    }
+    </script>
+
+    <!-- Feuille de styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Barre de navigation supérieure -->
+    <header class="navbar">
+        <a href="#" id="brand-logo" class="logo-brand" title="Retour à l'accueil MemoChampi">
+            <span class="logo-icon">🍄</span>
+            <h1>MemoChampi</h1>
+        </a>
+
+        <div class="navbar-center">
+            <!-- Emplacement pour statut live ou indices légers si besoin -->
+        </div>
+
+        <div class="nav-actions">
+            <button id="btn-open-mycotheque" class="btn-nav-text" title="Consulter l'encyclopédie des 44 champignons">
+                <span>📚</span>
+                <span>Mycothèque</span>
+            </button>
+            <button id="btn-toggle-sound" class="btn-icon" title="Son actif / muet">🔊</button>
+            <button id="btn-toggle-theme" class="btn-icon" title="Changer de thème (Sombre / Clair)">🌙</button>
+        </div>
+    </header>
+
+    <!-- Conteneur principal de l'application -->
+    <main class="container">
+
+        <!-- ===================================================================
+             ÉCRAN 1 : Configuration & Accueil
+             =================================================================== -->
+        <section id="screen-setup" class="glass-card">
+            <div class="hero-banner">
+                <div class="hero-badge">🌲 Cueillette Virtuelle & Apprentissage</div>
+                <h2>Identifiez les champignons des bois</h2>
+                <p>
+                    Observez le spécimen à l'écran, analysez son chapeau, son pied et ses lames, 
+                    puis trouvez le bon nom parmi 4 propositions. Tentez d'obtenir le meilleur score sur 20 !
+                </p>
+            </div>
+
+            <div class="setup-form-grid">
+                <div class="form-group">
+                    <label for="select-mode">🎯 Catégorie d'espèces :</label>
+                    <select id="select-mode" class="form-control">
+                        <option value="all" selected>🌲 Tous les champignons (44 espèces)</option>
+                        <option value="famous">🌟 Les 20 incontournables des sous-bois</option>
+                        <option value="edible">🍴 Comestibles recherchés (Cèpes, girolles...)</option>
+                        <option value="toxic">☠️ Espèces toxiques & mortelles (Pour bien les éviter)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="select-count">📊 Longueur de session :</label>
+                    <select id="select-count" class="form-control">
+                        <option value="10">10 Questions (Partie rapide)</option>
+                        <option value="20" selected>20 Questions (Session standard)</option>
+                        <option value="30">30 Questions (Grand défi mycologue)</option>
+                    </select>
+                </div>
+
+                <div class="form-group" style="grid-column: 1 / -1;">
+                    <label class="form-check">
+                        <input type="checkbox" id="check-clues" checked>
+                        <span>Afficher la famille botanique comme indice léger (ex: <em>Boletaceae</em>, <em>Amanitaceae</em>)</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="setup-actions">
+                <button id="btn-start-quiz" class="btn-primary">
+                    <span>🚀</span>
+                    <span>Lancer la Session (20 Questions)</span>
+                </button>
+                <button id="btn-open-mycotheque-setup" class="btn-secondary">
+                    <span>📖</span>
+                    <span>Explorer la Mycothèque (44 espèces illustrées)</span>
+                </button>
+            </div>
+
+            <!-- Historique / Statistiques personnelles -->
+            <div class="stats-preview-card">
+                <div class="stat-box">
+                    <small>Parties Jouées</small>
+                    <strong id="stat-games-played">0</strong>
+                </div>
+                <div class="stat-box">
+                    <small>Meilleur Score</small>
+                    <strong id="stat-best-score">0 / 20</strong>
+                </div>
+                <div class="stat-box">
+                    <small>Taux de Réussite</small>
+                    <strong id="stat-success-rate">0%</strong>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             ÉCRAN 2 : Quiz en cours (2 Colonnes)
+             =================================================================== -->
+        <section id="screen-quiz" class="hidden">
+            <!-- Barre de progression supérieure -->
+            <div class="quiz-top-bar">
+                <div class="quiz-header-meta">
+                    <span id="quiz-progress-text" class="quiz-progress-text">Question 1 / 20</span>
+                    <span id="quiz-score-live" class="quiz-score-badge">Score : 0</span>
+                </div>
+                <div class="progress-bar-wrap">
+                    <div id="quiz-progress-bar" class="progress-bar-fill"></div>
+                </div>
+            </div>
+
+            <!-- Grille de jeu : Image à gauche, Questions à droite -->
+            <div class="game-play-grid">
+                
+                <!-- COLONNE GAUCHE : Photo du champignon -->
+                <div class="mushroom-stage-card">
+                    <div class="clue-badge-box">
+                        <span id="clue-family-tag" class="clue-family-tag">Famille : Boletaceae</span>
+                    </div>
+
+                    <div class="image-wrapper" title="Cliquez pour agrandir l'image en plein écran">
+                        <div id="img-skeleton" class="img-loader-skeleton">
+                            <span>Chargement de la photo...</span>
+                        </div>
+                        <img id="mushroom-img" class="mushroom-img hidden" src="" alt="Champignon mystère">
+                        
+                        <div class="image-overlay-controls">
+                            <button id="btn-zoom-img" class="btn-overlay" title="Agrandir la photo">
+                                <span>🔍</span>
+                                <span>Plein écran</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLONNE DROITE : Question, 4 Choix & Fiche -->
+                <div class="glass-card quiz-panel-card">
+                    <div class="question-prompt-box">
+                        <h3>Quel est ce champignon ?</h3>
+                        <p>Sélectionnez la bonne réponse parmi les 4 propositions (Touches 1 à 4) :</p>
+                    </div>
+
+                    <!-- 4 Boutons d'options QCM -->
+                    <div id="options-container" class="options-grid">
+                        <!-- Généré dynamiquement via app.js -->
+                    </div>
+
+                    <!-- Fiche Mycologique révélée après choix -->
+                    <div id="educational-card" class="educational-card hidden">
+                        <div class="edu-card-header">
+                            <div class="edu-titles">
+                                <h4 id="edu-common-name">Cèpe de Bordeaux</h4>
+                                <em id="edu-latin-name">Boletus edulis</em>
+                            </div>
+                            <span id="edu-badge" class="badge-edibility excellent">🍴 Excellent</span>
+                        </div>
+
+                        <div id="edu-warning" class="edu-warning-banner hidden"></div>
+
+                        <div class="edu-info-grid">
+                            <div class="edu-item">
+                                <strong>Chapeau</strong>
+                                <span id="edu-cap">—</span>
+                            </div>
+                            <div class="edu-item">
+                                <strong>Dessous (Tubes/Lames)</strong>
+                                <span id="edu-underside">—</span>
+                            </div>
+                            <div class="edu-item">
+                                <strong>Pied</strong>
+                                <span id="edu-stem">—</span>
+                            </div>
+                            <div class="edu-item">
+                                <strong>Habitat</strong>
+                                <span id="edu-habitat">—</span>
+                            </div>
+                            <div class="edu-item">
+                                <strong>Période</strong>
+                                <span id="edu-season">—</span>
+                            </div>
+                            <div class="edu-item">
+                                <strong>Risques de confusion</strong>
+                                <span id="edu-confusion">—</span>
+                            </div>
+                        </div>
+
+                        <div class="edu-funfact">
+                            <strong>💡 Le saviez-vous ?</strong>
+                            <p id="edu-funfact-text" style="margin-top: 0.2rem;"></p>
+                        </div>
+                    </div>
+
+                    <!-- Bouton question suivante -->
+                    <button id="btn-next-question" class="btn-primary hidden">
+                        <span>Question Suivante</span>
+                        <span>➔</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             ÉCRAN 3 : Bilan de Fin de Session
+             =================================================================== -->
+        <section id="screen-bilan" class="glass-card hidden">
+            <div class="bilan-header">
+                <h2>🎉 Bilan de votre Session</h2>
+
+                <div class="bilan-score-row">
+                    <div class="bilan-metric-card">
+                        <div id="bilan-score-raw" class="number">18 / 20</div>
+                        <small>Bonnes Réponses</small>
+                    </div>
+                    <div class="bilan-metric-card">
+                        <div id="bilan-score-percent" class="number">18 / 20 (90%)</div>
+                        <small>Note Finale</small>
+                    </div>
+                    <div class="bilan-metric-card">
+                        <div id="bilan-time" class="number">1 min 45 s</div>
+                        <small>Temps Écoulé</small>
+                    </div>
+                </div>
+
+                <div id="bilan-rank-badge" class="rank-badge rank-expert">
+                    🌲 Cueilleur Expert
+                </div>
+                <p id="bilan-rank-comment" class="rank-comment">
+                    Remarquable ! Vous possédez de solides connaissances sur les champignons de nos sous-bois.
+                </p>
+            </div>
+
+            <!-- Liste détaillée des 20 questions pour révision -->
+            <div class="bilan-review-section">
+                <h3><span>📊</span> Récapitulatif des 20 propositions</h3>
+                <p class="subtext">Cliquez sur « Fiche » pour réviser en détail n'importe quel champignon :</p>
+                
+                <div id="bilan-review-list" class="review-list">
+                    <!-- Rempli dynamiquement -->
+                </div>
+            </div>
+
+            <div class="bilan-actions">
+                <button id="btn-restart-quiz" class="btn-primary">
+                    <span>🔄</span>
+                    <span>Rejouer une session</span>
+                </button>
+                <button id="btn-open-mycotheque-bilan" class="btn-secondary">
+                    <span>📚</span>
+                    <span>Explorer la Mycothèque</span>
+                </button>
+                <button id="btn-bilan-to-setup" class="btn-secondary">
+                    <span>⚙️</span>
+                    <span>Options de jeu</span>
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =======================================================================
+         MODAL 1 : Mycothèque (Catalogue des 44 espèces)
+         ======================================================================= -->
+    <div id="modal-mycotheque" class="modal-backdrop hidden">
+        <div class="modal-window">
+            <div class="modal-header">
+                <h3><span>📚</span> Mycothèque des Sous-Bois (44 espèces)</h3>
+                <button id="btn-close-mycotheque" class="btn-close-modal" title="Fermer (Échap)">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="myco-controls">
+                    <input type="text" id="myco-search" class="form-control myco-search-input" placeholder="🔍 Rechercher par nom commun, latin ou famille...">
+                    <select id="myco-filter" class="form-control myco-filter-select">
+                        <option value="all">Toutes les espèces</option>
+                        <option value="excellent">🍴 Excellents comestibles</option>
+                        <option value="comestible">🍽️ Tous les comestibles</option>
+                        <option value="toxic">⚠️ Espèces toxiques</option>
+                        <option value="deadly">☠️ Espèces mortelles</option>
+                        <option value="inedible">🪵 Sans intérêt / Non comestibles</option>
+                    </select>
+                </div>
+                <div id="myco-grid" class="myco-grid">
+                    <!-- Généré dynamiquement -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =======================================================================
+         MODAL 2 : Fiche Détaillée d'une espèce
+         ======================================================================= -->
+    <div id="modal-detail" class="modal-backdrop hidden">
+        <div class="modal-window" style="max-width: 750px;">
+            <div class="modal-header">
+                <h3><span>🍄</span> Fiche Mycologique Complète</h3>
+                <button id="btn-close-detail" class="btn-close-modal" title="Fermer (Échap)">✕</button>
+            </div>
+            <div id="detail-modal-content" class="modal-body">
+                <!-- Rempli dynamiquement -->
+            </div>
+        </div>
+    </div>
+
+    <!-- =======================================================================
+         MODAL 3 : Lightbox Zoom Image Plein Écran
+         ======================================================================= -->
+    <div id="lightbox-backdrop" class="lightbox-backdrop hidden">
+        <button id="btn-close-lightbox" class="lightbox-close-btn" title="Fermer (Échap)">✕</button>
+        <img id="lightbox-img" class="lightbox-img" src="" alt="Zoom champignon">
+        <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+
+    <!-- Pied de page -->
+    <footer class="footer">
+        <p>
+            <strong>MemoChampi</strong> — Jeu éducatif d'identification des champignons des bois | 
+            Dans l'esprit de <a href="https://github.com/chouteau/memofrance" target="_blank" rel="noopener">MemoFrance</a> et <a href="https://github.com/chouteau/memomonde" target="_blank" rel="noopener">MemoMonde</a>.
+        </p>
+        <p style="margin-top: 0.35rem; font-size: 0.78rem; color: var(--text-dim);">
+            ⚠️ Avertissement : Ce jeu est purement éducatif. Ne consommez jamais un champignon sans l'avis d'un mycologue qualifié ou d'un pharmacien.
+            Photos sous licences libres de droit (CC BY-SA / Domaine Public) issues de Wikimedia Commons.
+        </p>
+    </footer>
+
+    <!-- Scripts JavaScript -->
+    <script src="mushrooms.js"></script>
+    <script src="sound.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

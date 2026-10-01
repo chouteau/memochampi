@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <radialGradient id="capGrad" cx="40%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#ef4444" />
+      <stop offset="70%" stop-color="#b91c1c" />
+      <stop offset="100%" stop-color="#7f1d1d" />
+    </radialGradient>
+    <linearGradient id="stemGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#e2e8f0" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Stem -->
+  <path d="M 40 54 Q 38 75 35 88 Q 50 92 65 88 Q 62 75 60 54 Z" fill="url(#stemGrad)" filter="url(#shadow)" />
+  <!-- Ring/Annulus -->
+  <path d="M 37 66 Q 50 71 63 66 Q 50 63 37 66 Z" fill="#cbd5e1" />
+  
+  <!-- Cap -->
+  <path d="M 12 55 C 10 24, 30 12, 50 12 C 70 12, 90 24, 88 55 C 75 58, 25 58, 12 55 Z" fill="url(#capGrad)" filter="url(#shadow)" />
+  
+  <!-- White Spots -->
+  <ellipse cx="50" cy="24" rx="7" ry="5" fill="#ffffff" opacity="0.95" />
+  <ellipse cx="32" cy="34" rx="5" ry="4" fill="#ffffff" opacity="0.95" />
+  <ellipse cx="68" cy="35" rx="6" ry="4.5" fill="#ffffff" opacity="0.95" />
+  <ellipse cx="23" cy="47" rx="4" ry="3" fill="#ffffff" opacity="0.9" />
+  <ellipse cx="77" cy="48" rx="4.5" ry="3.5" fill="#ffffff" opacity="0.9" />
+  <ellipse cx="48" cy="44" rx="5.5" ry="4" fill="#ffffff" opacity="0.95" />
+</svg>
