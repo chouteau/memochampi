@@ -78,9 +78,32 @@ MemoChampi/
 
 ## 🎮 Comment Lancer le Jeu en Local
 
-1. Double-cliquez simplement sur le fichier **`index.html`** pour l'ouvrir dans votre navigateur web habituel (Google Chrome, Firefox, Safari, Edge).
-2. Aucun serveur web, ni Node.js, ni installation requise.
-3. Cliquez sur **🚀 Lancer la Session** et profitez de la cueillette !
+1. Double-cliquez simplement sur le fichier **`index.html`** pour l'ouvrir dans votre navigateur web habituel (aucun serveur ni installation requise).
+2. Choisissez votre mode de jeu (ou laissez les réglages par défaut sur 20 questions).
+3. Cliquez sur **🚀 Lancer la Session** !
+
+---
+
+## 📚 Sources, Données & Crédits
+
+Ce projet s'appuie exclusivement sur des ressources ouvertes, fiables et libres de droit :
+
+### 1. 📷 Photographies & Médias Libres
+* **[Wikimedia Commons](https://commons.wikimedia.org/)** : **100% des photographies de champignons** intégrées dans le jeu proviennent de la médiathèque libre **Wikimedia Commons** et de l'encyclopédie **Wikipédia**.
+  * **Licences** : Toutes les œuvres sont publiées sous licences libres et légales réutilisables (**Creative Commons CC BY-SA 4.0, CC BY-SA 3.0, CC BY 2.5/2.0**, ou placées dans le **Domaine Public / CC0**).
+  * **Auteurs & Photographes naturalistes** : Un immense merci aux mycologues, photographes et passionnés de nature qui partagent leurs clichés sur Wikimedia Commons pour enrichir le patrimoine scientifique commun *(Matthieu Brochon, Holger Krisp, Jerzy Opioła, Jörg Hempel, Dan Molter, Eric Steinert, et l'ensemble des contributeurs naturalistes)*.
+  * **Accès API** : Récupération automatisée et normalisée via l'API officielle MediaWiki (`https://fr.wikipedia.org/w/api.php`) via le script d'outillage `build_data.py`.
+
+### 2. 🍄 Connaissances Mycologiques & Taxonomie Officielle
+* **[Société Mycologique de France (SMF)](https://www.mycofrance.fr/)** : Recommandations d'identification, terminologie et sensibilisation aux risques d'intoxication fongique.
+* **[INPN (Inventaire National du Patrimoine Naturel)](https://inpn.mnhn.fr/)** / **Muséum National d'Histoire Naturelle (MNHN)** : Référentiel taxonomique et répartition des espèces en France métropolitaine.
+* **[Anses](https://www.anses.fr/)** *(Agence nationale de sécurité sanitaire)* : Bulletins de vigilance sur les intoxications, syndromes toxiques majeurs *(syndrome phalloïdien, orellanien, gyromitrien, muscarinien...)* et risques de confusions entre espèces comestibles et vénéneuses.
+* **[Index Fungorum](http://www.indexfungorum.org/)** & **[MycoBank](https://www.mycobank.org/)** : Référentiels internationaux pour la nomenclature binomiale scientifique valide.
+* **[Wikipédia (Portail de la Mycologie)](https://fr.wikipedia.org/wiki/Portail:Mycologie)** : Données descriptives sur la morphologie *(cuticule, hyménium, stipe, volve, anneau)*, les biotopes forestiers et les périodes de fructification.
+
+### 3. 💡 Conception & Projets Frères
+* **[MemoFrance](https://github.com/chouteau/memofrance)** : Jeu de quiz et de mémoire interactive sur les départements, régions et préfectures françaises.
+* **[MemoMonde](https://github.com/chouteau/memomonde)** : Jeu de mémoire géographique interactif sur les pays du monde, capitales, drapeaux et devises.
 
 ---
 
