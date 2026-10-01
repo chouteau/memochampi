@@ -3,6 +3,9 @@
 <p align="center">
   <h1 align="center">MemoChampi</h1>
   <p align="center"><strong>Jeu de mémoire et de reconnaissance visuelle des champignons des bois</strong></p>
+  <p align="center">
+    👉 <strong><a href="https://chouteau.github.io/memochampi/">Jouer au jeu en ligne !</a></strong>
+  </p>
 </p>
 
 *💡 Conçu dans le même esprit que **<a href="https://github.com/chouteau/memofrance">MemoFrance</a>** et **<a href="https://github.com/chouteau/memomonde">MemoMonde</a>**, MemoChampi vous invite dans les sous-bois pour entraîner votre œil, tester vos réflexes et mémoriser les espèces de champignons comestibles et toxiques de nos forêts.*
